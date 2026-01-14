@@ -1,26 +1,26 @@
 #!/usr/bin/env python
 
 import scapy.all as scapy
-import optparse
+# import optparse
 
 # since optparse is deprecated so we can use argparse instead
-# import argparse
-
-def get_arguments():
-    parser = optparse.OptionParser()
-    parser.add_option("-t", "--target", dest="ip", help="IP Address range for ARP broadcasting")
-    (options, arguments) = parser.parse_args()
-    if not options.ip:
-        parser.error("[-] Please specify an IP Address range, use --help for more information")
-    return options    
+import argparse
 
 # def get_arguments():
-#     parser = argparse.ArgumentParser()
-#     parser.add_argument("-t", "--target", dest="ip", help="IP Address range for ARP broadcasting")
-#     options= parser.parse_args()
+#     parser = optparse.OptionParser()
+#     parser.add_option("-t", "--target", dest="ip", help="IP Address range for ARP broadcasting")
+#     (options, arguments) = parser.parse_args()
 #     if not options.ip:
 #         parser.error("[-] Please specify an IP Address range, use --help for more information")
-#     return options
+#     return options    
+
+def get_arguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-t", "--target", dest="ip", help="IP Address range for ARP broadcasting")
+    options= parser.parse_args()
+    if not options.ip:
+        parser.error("[-] Please specify an IP Address range, use --help for more information")
+    return options
 
 def scan(ip):
     arp_request = scapy.ARP(pdst=ip)  # this will create a packet for arp request
